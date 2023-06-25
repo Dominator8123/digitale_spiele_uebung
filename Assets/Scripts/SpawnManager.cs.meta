@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 7d59674b2b0a6a64cbe393de3b537463
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - fox1Prefab: {fileID: 2339000595838866507, guid: 755464120d742a34eb808dc14fbe2dbb, type: 3}
+  - fox2Prefab: {fileID: 1433829735986622292, guid: 214fe4b27c641ad49b66ef95f2d5d567, type: 3}
+  - stagPrefab: {fileID: 2801705556777763295, guid: 77c1de64ed5b46e47ab4e6d9601cef54, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

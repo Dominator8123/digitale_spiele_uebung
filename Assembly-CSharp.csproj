@@ -56,11 +56,39 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\DetectCollisions.cs" />
+    <Compile Include="Assets\PT3\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\DestroyOutOfBounds.cs" />
+    <Compile Include="Assets\PT5\Scripts\Target.cs" />
+    <Compile Include="Assets\PT3\Scripts\MoveLeft.cs" />
+    <Compile Include="Assets\PT3\Scripts\RepeatBackground.cs" />
+    <Compile Include="Assets\PT2\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\PT1\Scripts\DestroyAfterDelay.cs" />
+    <Compile Include="Assets\PT4\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Locator.cs" />
+    <Compile Include="Assets\PT1\Scripts\FollowPlayer.cs" />
+    <Compile Include="Assets\PT3\Scripts\SpawnManager.cs" />
+    <Compile Include="Assets\PT4\Scripts\RotateCamera.cs" />
+    <Compile Include="Assets\PT5\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\SpawnManager.cs" />
+    <Compile Include="Assets\PT4\Scripts\SpawnManager.cs" />
+    <Compile Include="Assets\PT4\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Wander.cs" />
+    <Compile Include="Assets\PT2\Scripts\SpawnManager.cs" />
+    <Compile Include="Assets\PT1\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\MoveForward.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Course Library\_Source_Files\Materials\UnlitVertexColour_Alpha.shader" />
-    <None Include="Assets\Course Library\_Source_Files\_LICENSE.txt" />
+    <None Include="Assets\PT1\Course Library\Fonts\Margarine\OFL.txt" />
+    <None Include="Assets\PT1\Course Library\_Source_Files\Materials\UnlitVertexColour_Alpha.shader" />
+    <None Include="Assets\PT1\Course Library\Fonts\Roboto_Condensed\LICENSE.txt" />
+    <None Include="Assets\PT4\Course Library\_Source_Files\_LICENSE.txt" />
+    <None Include="Assets\PT1\Course Library\Fonts\Baloo_Chettan\OFL.txt" />
+    <None Include="Assets\PT1\Course Library\Fonts\Indie_Flower\OFL.txt" />
+    <None Include="Assets\PT1\Course Library\Fonts\Exo_2\OFL.txt" />
+    <None Include="Assets\PT1\Course Library\_Source_Files\_LICENSE.txt" />
+    <None Include="Assets\PT1\Course Library\Fonts\Oswald\OFL.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
