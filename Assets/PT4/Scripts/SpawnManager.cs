@@ -29,8 +29,8 @@ namespace protoype4
 
         private Vector3 GenerateSpawnPosition()
         {
-            float spawnPosX = Random.RandomRange(-spawnRange, spawnRange);
-            float spawnPosZ = Random.RandomRange(-spawnRange, spawnRange);
+            float spawnPosX = Random.Range(-spawnRange, spawnRange);
+            float spawnPosZ = Random.Range(-spawnRange, spawnRange);
             Vector3 randomPos = new Vector3(spawnPosX, 0, spawnPosZ);
             return randomPos;
         }

@@ -1033,6 +1033,8 @@ GameObject:
   - component: {fileID: -222114355715230089}
   - component: {fileID: -5488610912419468930}
   - component: {fileID: 4113981613714271344}
+  - component: {fileID: -5352697801513023574}
+  - component: {fileID: 4295948704394874380}
   m_Layer: 0
   m_Name: Animal_Fox_02
   m_TagString: Fox
@@ -1096,11 +1098,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1433829735986622292}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.10684909, y: 0.22388688, z: 0.322131}
+  m_Center: {x: 0.0058116256, y: 0.09927573, z: 0.010147977}
 --- !u!114 &-5488610912419468930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1113,7 +1115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a52c69bc3bc3c244b7a99d4a7eac3c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 5
 --- !u!54 &4113981613714271344
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1122,11 +1124,36 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1433829735986622292}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 5
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 1
-  m_Constraints: 0
+  m_Interpolate: 0
+  m_Constraints: 84
   m_CollisionDetection: 2
+--- !u!114 &-5352697801513023574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433829735986622292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c7714a3ba0b9924b8ee3850f4a272b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+--- !u!114 &4295948704394874380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433829735986622292}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3f2794b0c771b5438a233a969fe94d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

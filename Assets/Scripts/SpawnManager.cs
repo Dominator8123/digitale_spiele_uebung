@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -10,16 +7,13 @@ public class SpawnManager : MonoBehaviour
     public GameObject fox2Prefab;
     public GameObject stagPrefab;
 
-    private Locator locator;
 
-    private const float SPAWN_RANGE = 50.0f;
+    private const float SPAWN_RANGE = 48.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        SpawnNPCs();
-        locator = GameObject.Find("Locator").GetComponent<Locator>();
-        
+        SpawnNPCs();        
     }
 
     // Update is called once per frame
@@ -31,11 +25,14 @@ public class SpawnManager : MonoBehaviour
     void SpawnNPCs()
     {
         Instantiate(fox1Prefab, generateRandomPosition(), fox1Prefab.transform.rotation);
+        fox1Prefab.transform.LookAt(new Vector3(0, 0, 0));
         Instantiate(fox2Prefab, generateRandomPosition(), fox2Prefab.transform.rotation);
+        fox2Prefab.transform.LookAt(new Vector3(0, 0, 0));
 
         for (int i = 0; i < 8; i++)
         {
             Instantiate(stagPrefab, generateRandomPosition(), stagPrefab.transform.rotation);
+            stagPrefab.transform.LookAt(new Vector3(48, 0, 0));
         }
     }
 
