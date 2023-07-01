@@ -57,31 +57,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\BuildFlock.cs" />
-    <Compile Include="Assets\PT3\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\PT5\Scripts\Target.cs" />
-    <Compile Include="Assets\PT3\Scripts\MoveLeft.cs" />
-    <Compile Include="Assets\PT3\Scripts\RepeatBackground.cs" />
     <Compile Include="Assets\Scripts\FoxBehaviour.cs" />
-    <Compile Include="Assets\PT2\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\PT1\Scripts\DestroyAfterDelay.cs" />
-    <Compile Include="Assets\PT4\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\FollowPlayer.cs" />
-    <Compile Include="Assets\PT3\Scripts\SpawnManager.cs" />
-    <Compile Include="Assets\PT4\Scripts\RotateCamera.cs" />
-    <Compile Include="Assets\PT5\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\SpawnManager.cs" />
-    <Compile Include="Assets\PT4\Scripts\SpawnManager.cs" />
-    <Compile Include="Assets\PT4\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\PT2\Scripts\SpawnManager.cs" />
-    <Compile Include="Assets\PT1\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\StagBehaviour.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\PT1\Course Library\Fonts\Margarine\OFL.txt" />
     <None Include="Assets\PT1\Course Library\_Source_Files\Materials\UnlitVertexColour_Alpha.shader" />
     <None Include="Assets\PT1\Course Library\Fonts\Roboto_Condensed\LICENSE.txt" />
-    <None Include="Assets\PT4\Course Library\_Source_Files\_LICENSE.txt" />
+    <None Include="Assets\Licenses\_LICENSE_4.txt" />
     <None Include="Assets\PT1\Course Library\Fonts\Baloo_Chettan\OFL.txt" />
     <None Include="Assets\PT1\Course Library\Fonts\Indie_Flower\OFL.txt" />
     <None Include="Assets\PT1\Course Library\Fonts\Exo_2\OFL.txt" />
