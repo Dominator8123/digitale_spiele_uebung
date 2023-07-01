@@ -64,15 +64,9 @@
     <Compile Include="Assets\Scripts\StagBehaviour.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\PT1\Course Library\Fonts\Margarine\OFL.txt" />
     <None Include="Assets\PT1\Course Library\_Source_Files\Materials\UnlitVertexColour_Alpha.shader" />
-    <None Include="Assets\PT1\Course Library\Fonts\Roboto_Condensed\LICENSE.txt" />
     <None Include="Assets\Licenses\_LICENSE_4.txt" />
-    <None Include="Assets\PT1\Course Library\Fonts\Baloo_Chettan\OFL.txt" />
-    <None Include="Assets\PT1\Course Library\Fonts\Indie_Flower\OFL.txt" />
-    <None Include="Assets\PT1\Course Library\Fonts\Exo_2\OFL.txt" />
     <None Include="Assets\Licenses\_LICENSE.txt" />
-    <None Include="Assets\PT1\Course Library\Fonts\Oswald\OFL.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
