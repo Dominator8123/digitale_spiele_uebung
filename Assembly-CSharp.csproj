@@ -64,7 +64,6 @@
     <Compile Include="Assets\Scripts\StagBehaviour.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\PT1\Course Library\_Source_Files\Materials\UnlitVertexColour_Alpha.shader" />
     <None Include="Assets\Licenses\_LICENSE_4.txt" />
     <None Include="Assets\Licenses\_LICENSE.txt" />
   </ItemGroup>
