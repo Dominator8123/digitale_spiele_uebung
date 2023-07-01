@@ -85,7 +85,7 @@
     <None Include="Assets\PT1\Course Library\Fonts\Baloo_Chettan\OFL.txt" />
     <None Include="Assets\PT1\Course Library\Fonts\Indie_Flower\OFL.txt" />
     <None Include="Assets\PT1\Course Library\Fonts\Exo_2\OFL.txt" />
-    <None Include="Assets\PT1\Course Library\_Source_Files\_LICENSE.txt" />
+    <None Include="Assets\Licenses\_LICENSE.txt" />
     <None Include="Assets\PT1\Course Library\Fonts\Oswald\OFL.txt" />
   </ItemGroup>
   <ItemGroup>
