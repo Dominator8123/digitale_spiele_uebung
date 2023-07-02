@@ -11,7 +11,8 @@ public class StagBehaviour : MonoBehaviour
     private Vector3 velocity;
     private readonly Vector3 stagsMeetPos = new Vector3(0, 0, 48);
     private bool flockBuilt = false;
-    private bool foxWasNear = false;
+    private bool fleeDirDetermined = false;
+    private Vector3 fleeDir;
     private static readonly float FLEE_SPEED = 10.0f;
     private static readonly float FOX_IS_NEAR_DISTANCE = 15.0f;
     private static readonly string FOX_TAG = "Fox";
@@ -28,43 +29,29 @@ public class StagBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!flockBuilt)
-        {
-            
-                if (Vector3.Distance(transform.position, stagsMeetPos) > 7.0f)
-                {
-                    transform.LookAt(stagsMeetPos);
-                }
-                else
-                {
-                    flockBuilt = true;
-                }
-            
-        }
-        else
-        {
-            if (!foxWasNear)
-            {
-                animator.SetBool("Eat_b", true);
-            }
-            else
-            {
-                animator.SetBool("Eat_b", false);
-            }
-        }
+       
         Monitor.Enter(animator);
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Locomotion"))
         {
-            //rb.AddForce(Vector3.forward * Time.deltaTime * speed);
             velocity = transform.forward * speed;
+            fleeDirDetermined = false;
         }
         else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Flee"))
         {
-            foxWasNear = true;
+            transform.LookAt(transform.position + fleeDir);
             velocity = transform.forward * FLEE_SPEED;
-        } else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Eat"))
+        }
+        else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Eat"))
         {
             velocity = Vector3.zero;
+            fleeDirDetermined = false;
+
+        }
+        else if (animator.GetCurrentAnimatorStateInfo(0).IsName("BuildFlock"))
+        {
+            velocity = transform.forward * speed;
+            fleeDirDetermined = false;
+
         }
         Monitor.Exit(animator);
     }
@@ -86,6 +73,14 @@ public class StagBehaviour : MonoBehaviour
 
             }
             Monitor.Exit(animator);
+        }
+        if (Vector3.Distance(transform.position, stagsMeetPos) > 10.0f)
+        {
+            this.transform.LookAt(stagsMeetPos);
+        }
+        else
+        {
+            animator.SetBool("FlockBuilt", true);
         }
     }
 
@@ -111,29 +106,31 @@ public class StagBehaviour : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(FOX_TAG))
         {
-            Monitor.Enter(animator);
+            if (!fleeDirDetermined)
             {
-                animator.SetBool("FoxIsNear", true);
+                fleeDir = -(collision.transform.position - transform.position);
+                fleeDirDetermined = true;
             }
-            Monitor.Exit(animator);
-            Vector3 fleeDir = -(collision.gameObject.transform.position - transform.position);
-            transform.rotation = Quaternion.LookRotation(fleeDir);
+            //  transform.rotation = Quaternion.LookRotation(fleeDir);
+            //transform.rotation.SetLookRotation(fleeDir);
+
         }
         else if (collision.gameObject.CompareTag("StoneWall"))
         {
-            int choice = Random.Range(0, 3);
-            if (choice == 0)
-            {
-                transform.Rotate(0, 180, 0);
-            }
-            else if (choice == 1)
-            {
+            transform.Rotate(0, Random.Range(-90, 90), 0);
+        } else if (collision.gameObject.CompareTag("Tree"))
+        {
+            transform.Rotate(0, 45, 0);
+        }
+    }
 
-            }
-            else
-            {
-                transform.Rotate(0, 180, 0);
-            }
+    private void onCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag(FOX_TAG))
+        {
+            Vector3 fleeDir = -(collision.transform.position - transform.position);
+           // transform.rotation = Quaternion.LookRotation(fleeDir);
+            //transform.rotation.SetLookRotation(fleeDir);
         }
     }
 }

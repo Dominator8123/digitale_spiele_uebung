@@ -8,6 +8,9 @@ TagManager:
   - NPC
   - Fox
   - Stag
+  - FlockBuilder
+  - SpawnManager
+  - Tree
   layers:
   - Default
   - TransparentFX

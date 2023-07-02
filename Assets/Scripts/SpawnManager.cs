@@ -7,7 +7,6 @@ public class SpawnManager : MonoBehaviour
     public GameObject fox2Prefab;
     public GameObject stagPrefab;
 
-
     private const float SPAWN_RANGE = 48.0f;
 
     // Start is called before the first frame update
@@ -25,14 +24,12 @@ public class SpawnManager : MonoBehaviour
     void SpawnNPCs()
     {
         Instantiate(fox1Prefab, generateRandomPosition(), fox1Prefab.transform.rotation);
-        fox1Prefab.transform.LookAt(new Vector3(0, 0, 0));
         Instantiate(fox2Prefab, generateRandomPosition(), fox2Prefab.transform.rotation);
-        fox2Prefab.transform.LookAt(new Vector3(0, 0, 0));
+
 
         for (int i = 0; i < 8; i++)
         {
             Instantiate(stagPrefab, generateRandomPosition(), stagPrefab.transform.rotation);
-            stagPrefab.transform.LookAt(new Vector3(48, 0, 0));
         }
     }
 

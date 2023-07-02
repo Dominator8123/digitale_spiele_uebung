@@ -10,6 +10,7 @@ public class FoxBehaviour : MonoBehaviour
     private Rigidbody rb;
     private Vector3 velocity;
     private GameObject nearestGameObject;
+    private Vector3 foxMeetPos = new Vector3(0, 0, -48);
     private static readonly float HUNT_SPEED = 7.0f;
     private static readonly float SEEK_SPEED = 2.0f;
     private static readonly float TURN_ANGLE = 90.0f;
@@ -27,8 +28,7 @@ public class FoxBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        Monitor.Enter(animator);
+        
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Wander"))
         {
             //rb.AddForce(Vector3.forward * Time.deltaTime * speed);
@@ -44,7 +44,25 @@ public class FoxBehaviour : MonoBehaviour
             velocity = transform.forward * SEEK_SPEED;
             transform.LookAt(nearestGameObject.transform.position);
         }
-        Monitor.Exit(animator);
+        else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Eat"))
+        {
+            velocity = Vector3.zero;
+        }
+        else if (animator.GetCurrentAnimatorStateInfo(0).IsName("BuildFlock"))
+        {
+            
+                if (Vector3.Distance(this.transform.position, foxMeetPos) > 5.0f)
+                {
+                    this.transform.LookAt(foxMeetPos);
+                    velocity = transform.forward * 90;
+                    animator.SetBool("FlockBuilt", false);
+                }
+                else
+                {
+                    animator.SetBool("FlockBuilt", true);
+                }
+            
+        }
     }
 
     void FixedUpdate()
@@ -54,6 +72,7 @@ public class FoxBehaviour : MonoBehaviour
 
     private void updateState()
     {
+
         Dictionary<GameObject, float> distances = new Dictionary<GameObject, float>();
 
         foreach (GameObject stag in GameObject.FindGameObjectsWithTag(STAG_TAG))
