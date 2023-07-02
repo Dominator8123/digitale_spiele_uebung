@@ -5,12 +5,14 @@ using UnityEngine;
 
 public class FoxBehaviour : MonoBehaviour
 {
-    public float speed = 1.0f;
+    public float speed = 3.0f;
     private Animator animator;
     private Rigidbody rb;
     private Vector3 velocity;
     private GameObject nearestGameObject;
     private Vector3 foxMeetPos = new Vector3(0, 0, -48);
+    private static readonly float WANDER_SPEED = 3.0f;
+    private static readonly float BUILD_FLOCK_SPEED = 4.0f;
     private static readonly float HUNT_SPEED = 7.0f;
     private static readonly float SEEK_SPEED = 2.0f;
     private static readonly float TURN_ANGLE = 90.0f;
@@ -32,7 +34,8 @@ public class FoxBehaviour : MonoBehaviour
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Wander"))
         {
             //rb.AddForce(Vector3.forward * Time.deltaTime * speed);
-            velocity = transform.forward * speed;
+            velocity = transform.forward * WANDER_SPEED;
+            transform.LookAt(nearestGameObject.transform.position);
         }
         else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Hunt"))
         {
@@ -54,7 +57,7 @@ public class FoxBehaviour : MonoBehaviour
                 if (Vector3.Distance(this.transform.position, foxMeetPos) > 5.0f)
                 {
                     this.transform.LookAt(foxMeetPos);
-                    velocity = transform.forward * 90;
+                    velocity = transform.forward * BUILD_FLOCK_SPEED;
                     animator.SetBool("FlockBuilt", false);
                 }
                 else
@@ -86,7 +89,6 @@ public class FoxBehaviour : MonoBehaviour
             animator.SetFloat("minimumDistance", minDistancePair.Value);
             Monitor.Exit(animator);
         }
-
     }
 
     private static KeyValuePair<GameObject, float> getMinimumDistanceAndGameObject(Dictionary<GameObject, float> distances)
@@ -114,7 +116,11 @@ public class FoxBehaviour : MonoBehaviour
             transform.Rotate(0, Random.Range(-TURN_ANGLE, TURN_ANGLE), 0);
         } else if (collision.gameObject.CompareTag(FOX_TAG))
         {
+            rb.AddForce(-transform.forward * 5);
             transform.Rotate(0, 180, 0);
+        } else if (collision.gameObject.CompareTag("Tree"))
+        {
+            transform.Rotate(0, 45, 0);  
         }
     }
 
@@ -124,17 +130,7 @@ public class FoxBehaviour : MonoBehaviour
         {
             Vector3 forceVector = (collision.gameObject.transform.position - transform.position);
             //collision.gameObject.GetComponent<Rigidbody>().AddForce(forceVector * 5);
-            //rb.AddForce(-forceVector * 50);
-        }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.tag == STAG_TAG)
-        {
-            Vector3 forceVector = (collision.gameObject.transform.position - transform.position).normalized;
-            //collision.gameObject.GetComponent<Rigidbody>().AddForce(forceVector * 5);
-            //rb.AddForce(-forceVector * 5);
+            rb.AddForce(-forceVector * 50);
         }
     }
 }
